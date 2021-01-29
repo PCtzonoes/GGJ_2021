@@ -1,0 +1,720 @@
+EditorSculpt
+
+更新履歴
+<v1.51>
+・Editor Sculptのv1.50でedit/UNDOメニューでUNDOができないバグを修正しました。
+
+・「Save AnimationClip」ダイアログをキャンセルした場合、animation clipがおかしくなるバグを修正しました。
+
+・Editor Sculptウィンドゥに「Override without dialog」チェックボックス項目を追加しました。
+　これをオンにすれば「Add a new Bone」ボタンを押したときに、ダイアログを表示させることなくボーンを追加できます。
+
+・GenericなAvatarの3Dモデルをスカルプトしたとき「Animation tip」ブラシでのボーン表示がおかしくなるバグを修正しました。
+
+<v1.50>
+・メッシュの頂点だけでなく、アニメーション用のボーンもスカルプトできるようになりました！
+　そのための2つの新しいブラシを追加しました。
+
+・新しいブラシ「Animation Move」ブラシを追加しました。このブラシはEditor Sculpt 1.42以前の「BETA_BoneMove」ブラシの
+　正式リリース版です。
+　このブラシは「Move」ブラシと似ていますが、メッシュの頂点ではなくアニメーションのためのボーンを動かします。
+
+・「Animation Move」ブラシを選ぶとシーンビューの左上に「Animation Time」スライダーが現れます。
+　このスライダーを左右に動かすことで編集するアニメーションの時間を設定することができます。
+
+・「Animation Move」ブラシでモデルのボーンを動かし、それをアニメーションクリップに保存することができます。
+　このアニメーションクリップはUnityのMecanimアニメーションと互換があるので、UnityのAnimation用のツールを使って
+　保存したアニメーションを編集しなおすこともできます。
+
+・「Animation Move」ブラシはGenericとHumanoid両方のアニメーションをサポートしていますが、
+　ボーンの角度制限やボーンの左右対称といった追加の機能を使うことができるHumanoidの方を使うことをお勧めします。
+
+・「Animation Move」は既存のアニメーションクリップのポーズを編集することもできます。
+　「Animation Move」ブラシを選択するとEditor Windowのウィンドウの中に「Select Aniamtions」ポップアップが現れます。
+　そして、そのポップアップから「Import a Aniamtion」を選択することで、編集するアニメーションクリップを選択することができます。
+
+・新しいブラシ「Animation Tip」ブラシを追加しました。このブラシは「Animation Move」ブラシと似ていますが、
+　指の先端、足の先端といった先端部分のボーンだけを動かすことができます。
+
+・「CTRL+Zキー」で頂点カラーのペイントをUNDOしたときに、動作がおかしいバグを修正しました。
+
+・「Add a new bone」ボタンの動作がおかしいバグを修正しました。
+
+・「Add a new bone」ボタンを押したときにRuntimeAnimatorControllerを作り直すようにしました。
+　これにより、多くのバグが修正されるはずです。
+
+・「Import Animation」ボタンがgenericなアニメーションクリップで動作しないバグを修正しました。
+
+・Edior Sculptウィンドウの「Animation」折り込みタブに「Reset Bindpose」ボタンを追加しました。
+
+・一部のダイアログで「OK」と「Cancel」の位置を入れ替えました。
+
+・「Readme」テキストを最新版のEditor Sculptに対応させました。
+
+・そのほか細かいバグ修正を行いました。
+
+<v1.42>
+・Editor Sculptのv1.40やv1.41でSkinned MeshRendererのあるメッシュをスカルプトできないバグを修正しました。
+
+・「Merge Verts」や「Subdivide Standard」ボタンを押したときに、メッシュにBlend Shape Frameがある場合に、Blend Shapeがおかしくなるバグを修正しました。
+
+・「BETA_BoneMove」ブラシを大幅に改良しました。しかし、まだ開発途中のベータ版ブラシのままです。
+　Unityのメニューから「Tools/EditorSculpt/Extra/TryBetaBrushes」を選んで「BETA_BoneMove」ブラシを選択することで
+　これを試すことができます。
+
+<v1.41>
+・Editor Sculptのv1.40で動作が遅くなったのを修正しました。
+
+・サブメッシュがある3Dモデルで「Draw」や「Lower」ブラシの動作がおかしいバグを修正しました。
+
+・サブメッシュがある3Dモデルで「Add a new boe」ボタンの動作がおかしいバグを修正しました。
+
+・Auto Remeshスカルプト時にポリゴンの一部が一時的に黒くなってしまうバグを修正しました。
+
+・新しいAdvanced Option項目「Calc Mesh Normals」を追加しました。これはスカルプト動作を遅くしますが、メッシュの法線による不具合をいくつか修正します。
+
+<v1.40>
+外部からインポートされた3Dモデルの互換性をかなり向上しました。
+Editor Sculpt1.39以前のバージョンではインポート時にエラーが出ていた3Dモデルの多くが正常に動作するようになりました。
+
+・サブメッシュのある外部の3Dモデルを読み込んだ時に黒くしてしまうバグを修正しました。
+
+・Skinned MeshRendererコンポーネントのある3Dモデルを読み込んだ時に、たまにメッシュがおかしくなるバグを修正しました。
+
+・Editor Sculptウィンドウの「Edit Mesh」折り込みタブの「Smooth Mesh」ボタンを押したときにメッシュがおかしくなるバグを修正しました。
+
+・Editor Sculptウィンドウの「Edit Mesh」折り込みタブの「Merge Verts」ボタンを押したときにBlend Shapeが消失してしまうバグを修正しました。
+
+・メッシュにBlend Shape Frameがある場合に、Blend Shapeがおかしくなるバグを修正しました。
+
+・Editor Sculptウィンドウの「Edit Mesh」折り込みタブの「Merge Verts」ボタンを押したときにメッシュが黒くなってしまうことがあるバグを修正しました。
+
+・Auto Remesh時にUndoしたときにメッシュを小さくしてしまうバグを修正しました。
+
+・Advanced Option項目の「Realtime AutoRemesh」が左右対称が有効になっている場合に機能しないバグを修正しました。
+
+・そのほか細かいバグ修正を行いました。
+
+<v1.39>
+バグ修正のための臨時の更新です。FBX形式のインポートされたメッシュの一部（3DS MaxやBlenderからインポートされたものなど）で、
+メッシュをスカルプトしたときにメッシュが黒くなってしまいスカルプトも出来なくなってしまうバグを修正しました。
+
+<v1.38>
+・開始ウィンドウのメニューから「Select Asset Mesh」で3Dモデルを選択したときに一部のメッシュが見つからないバグを修正しました。
+
+・メッシュのtrianglesを最適化するオプションを追加しました。このオプションはEditor Sculptウィンドウの「Show Advanced Options」折り込みタブの
+　「Optimize Triangles」チェックボックス項目をチェックすることで有効になります。
+
+・メッシュのTrianglesを保護するオプションを追加しました。このオプションはEditor Sculptウィンドウの「Show Advanced Options」折り込みタブの
+　「Preserve Triangles」チェックボックス項目をチェックすることで有効になります。
+
+・Standard Sculpt時にTrianglesを保護するようにしました。この動作が気に入らないなら、Editor Sculptウィンドウの「Show Advanced Options」折り込みタブの
+　「Preserve Triangles」チェックボックス項目のチェックを外すことで元に戻すことができます。
+
+・Editor Sculptウィンドウの開始時にAdvanced Optionsの設定を変更することができるようにしました。
+　これは「Enable Auto Save」、「Enable Debug Mode」といったメッシュを読み込む前に設定が必要な項目で有効です。
+
+・「BETA_BoneMove」ブラシを大幅に改良しました。しかし、まだ開発途中のベータ版ブラシのままです。
+　Unityのメニューから「Tools/EditorSculpt/Extra/TryBetaBrushes」を選んで「BETA_BoneMove」ブラシを選択することで
+　これを試すことができます。
+
+
+<v1.37>
+・ブレンドシェイプを保存するときやボーンを追加するときに、選択が失われるバグを修正しました。
+
+・Editor Sculptウィンドウを開いたさいのGUIを、Object Pickerでアセットのメッシュを選択できるように改善しました。
+
+・「Import Animation」ボタンのGUIをObject Pickerを利用するように改善しました。
+
+・Prefabを上書き保存するさいに現れる「SavePrefab」ダイアログを表示しないようにしました。
+
+・起動時のウィンドウに「Load Your Mesh」ボタンを追加しました。このボタンは以前にEditor Sculptでスカルプトしたメッシュを選択できます。
+
+・「Export Unitypackage」ボタンを改善し、Prefabを含めて保存できるようにしました。
+
+・AutoRemesh時にはどのみちBlendShapeを保持できないので、
+　AutoRemesh時に「Start Record BlendShape」を表示しないようにしました。
+
+・すでにインポート済みのAnimation Clipを「Animation Clip」でインポートできてしまうバグを修正しました。
+
+・Editor Sculptウィンドウを開いたさいに、ポップアップメニューからメッシュを選択したばあい、
+　動作が遅くなるバグを修正しました。
+
+・FBX形式のインポートされたメッシュのアバターを保存できるようにしました。
+
+・「BETA_BoneMove」ブラシを大幅に改良しました。しかし、まだ開発途中のベータ版ブラシのままです。
+
+・そのほか細かいバグ修正とわずかなスピード改善を行いました。
+
+<v1.36>
+・AutoRemesh時にSkinned MeshRendererのメッシュをスカルプトしたさいにメッシュがおかしくなるバグを修正しました。
+
+・AutoRemesh時にSkinned MeshRendererのメッシュをスカルプトしているとき、
+シフトキーを押してメッシュをスムーズしたさいにメッシュがおかしくなるバグを修正しました。
+
+・アニメーションクリップがインポートできるようになりました。
+　Editor Sculptウィンドウ内の「Animation」折り込みメニューの「Import Animation」object fieldで
+　アニメーションクリップを選択し、その後「Import」ボタンを押すことでAnimationをインポートできます。
+
+・アニメーションクリップがプレビューできるようになりました。
+　Editor Sculptウィンドウ内の「Animation」折り込みメニューの「Preview Animation」ボタンを押すことでプレビューできます。
+
+・Standard Sculptモード時に「Subdivide Mesh」ボタンや「Solid Subdivide」ボタンを押してメッシュを分割したときに、
+　メッシュがおかしくなるバグを修正しました。
+
+・「No Skinned MeshRenderer」ダイアログが表示された場合にキャンセルできなくなるバグを修正しました。
+
+・Unity2019.3で「Tools/EditorSculpt/Texture Paint」メニューからプリミティブのテクスチャをペイントしようとしても、
+　ペイントできないバグを修正しました。
+
+・「Animation Setup」ボタンがアバターのIKをバインドしないバグを修正しました。
+
+・「Vertex Weight」/「Erase Weight」ブラシの強度を調整しました。
+
+・「Add a new bone」ボタンのGUIをドロップダウンメニューを使うようにして改良しました。
+
+・「BETA_BoneMove」ブラシを大幅に改良しました。しかし、まだ開発途中のベータ版ブラシのままです。
+　Unityのメニューから「Tools/EditorSculpt/Extra/TryBetaBrushes」を選んで「BETA_BoneMove」ブラシを選択することで
+　これを試すことができます。
+
+・そのほか細かいバグ修正を行いました。
+　
+
+<v1.35>
+・「Setup Animator」ボタンを大幅に改善し、EditorSculptで作成したBlendShapeをバインドできるようにしました。
+　また、Skinned MeshRendererやAnimatorコンポーネントもバインドできるようにしました。
+
+・GPUスキニングを有効にしていると、Blend Shapeを保存できないバグを修正しました。
+　これは最近のバージョンのUnityでのみ可能な修正です。（Unity2019.2.10以降、
+　またはUnity2019.3.0b9以降（ベータ版のUnity3Dを使っている場合）、
+　またはUnity 2020.1.0a11以降（アルファ版のUnity3Dを使っている場合））
+
+・BlendShapeを記録するさいの、GPU Skinningを無効にするダイアログを無くしました。
+　（最近のバージョンのUnityでのみです。）
+
+・ボーンを削除できるようにしました。これはEditor Sculptウィンドウの「Animation」折り込みメニューの「Delete Bones」
+　チェックボックスを外すと現れる「Delete Bone」ボタンを押すことで行えます。
+
+・BlendShapeを記録している際に画面の左上に「Stop Record BlendShape」ボタンを表示するようにしました。
+
+・BlendShapeを記録している際に画面の左上に「Recording BlendShapes」というメッセージを表示するようにしました。
+
+・ボーンを追加している際に画面の左上に「Cancel Add a bone」ボタンを表示するようにしました。
+
+・メッシュが見やすくなるように「Bone Transparent」の値を変更しました。
+
+・BlendShapeの最大値を1.0から100.0へと変更しました。これにより、FBX形式の3Dメッシュとの互換性が向上されます。
+
+・「BETA_BoneMove」ブラシを大幅に改良しました。しかし、まだ開発途中のベータ版ブラシのままです。
+
+・そのほか細かいバグを修正しました。
+
+<v1.34>
+・Unity 2019.2や2019.3 betaでメッシュをBlend Shapeとして保存した際に、
+　GPU Skinningを有効にしているとEditorがフリーズするバグを修正しました。
+　もし、それでもBlend Shapeで問題があるようならUnityのプロジェクトのプレイヤー設定で「Edit/Project Settings/Player/GPU Skinning」
+　の項目でGPU Skinningのチェックボックスを外してみてください。
+
+・Blend Shapeを記録するさいに、GPU Skinningを無効にするダイアログを表示するようにしました。
+　これにより、多くのバグが修正されると思います。
+
+・メッシュにボーンを追加する際に、メッシュを変形させてしまうバグを修正しました。
+
+・「Animation/Setup Animator」ボタンがTransforの回転をうまくバインドできないバグを修正しました。
+
+・「Animation」折り込みメニューのGUIを改善しました。
+
+・「BETA_BoneMove」ブラシを大幅に改良しました。しかし、まだ開発途中のベータ版ブラシのままです。
+
+<v1.33>
+・「Save」ボタンや「Tools/EditorSculpt/Save Mesh/Save」メニューから3Dモデルを保存したさいに、
+　マテリアルが消失するバグを修正しました。
+
+・AutoRemesh Sculpt時にEdior Sculptウィンドウの「Animation」折り込みメニューの「Add a new Bone」ボタンを押しても、
+　Boneが追加されないバグを修正しました。
+
+・Unity 2019.3betaで「Add a new Bone」ボタンを押しても、Boneが追加されないバグを修正しました。
+
+・BlendShapeをRecordしたさいにunitypackageアセットを作ってしまうバグを修正しました。
+
+・「Add a new Bone」ボタンを押してボーンを追加するときにボーンを表示できるようになりました。
+
+・アニメーションクリップやAnimatorが設定できるようになりました。
+　Editor Sculptウィンドウの「Animation/Setup Animator」ボタンを押すことで設定できます。
+
+・「Custom/EditorSculpt」マテリアルを保存しないことにしました。これにより安全にobj形式でエクスポートできますし、
+　様々なバグの修正が見込まれます。
+　もし、これが気に入らなければ、Edior Sculptウィンドウの「Save/Export」折り込みメニュー内の「Export EditorSculpt Mat」
+　チェックボックスをチェックすることで元に戻すことができます。
+
+・「BETA_BoneMove」ブラシを大幅に改良しました。しかし、まだ開発途中のベータ版ブラシのままです。
+
+・そのほか細かいバグを修正しました。
+
+<v1.32>
+・ボーンをメッシュに追加する機能を追加しました。
+　Editor Sculptウィンドウ内の「Animation」折り込みタブの中の「Add a new Bone」ボタンを押すことで追加できます。
+　このとき、自動的にボーンのウェイト値が設定されます。もし、この値が気に入らなければ、
+　「Vertex Weight」ブラシや「Erase Weight」ブラシによって調節することができます。
+　
+・メッシュのボーンを表示できるようにしました。
+　Editor Sculptウィンドウの中の「Anamtion/Show the Bones」チェックボックスをチェックするか、
+　Editor Sculptウィンドウの中の「Display Mode」ポップアップメニューから「Bones」を選択することでも表示することができます。
+
+・FBX形式のインポートされたメッシュをスカルプトするさいに、頂点カラーが見えなくなるバグを修正しました。
+
+・FBX形式のインポートされたメッシュをスカルプトするさいに、マスクが見えなくなるバグを修正しました。
+
+・「Vertex Weight」ブラシを選択した後、Editor Sculptを終了してもずっとボーンウェイトが表示されたままになるバグを修正しました。
+
+・新しい、開発途中のベータ版でまだ動作しないブラシ「BETA_BoneMove」を追加しました。
+　これは「Move」ブラシに似ていますがメッシュの頂点を一切動かさず、替わりにボーンのTransform座標を移動させます。
+　「Tools/EditorSculpt/Extra/Try Beta Brushes/BETA_BoneMove」または
+　「Tools/EditorSculpt/Extra/Try Beta Brushes(Auto Remesh)/BETA_BoneMove」からこのブラシにアクセスできます。
+
+<v1.31>
+・「Vertex Weight」ブラシと「Erase Weight」ブラシを大幅に修正し、
+BoneWeightをペイントできるようにしました。
+これを使うときにはEditr Sculptウィンドウに現れる新しい「Select Weight」オプションのポップアップメニューを選択してください。
+
+・プロジェクトがGPU Skinningを有効にしている場合に、BlendShapeがおかしくなるバグを修正しました。
+
+・Undo時にBlendShapeが消失してしまうバグを修正しました。
+
+・「Subdivide Mesh」ボタンでメッシュを分割したときにBlendShapeが消失してしまうバグを修正しました。
+
+・「Subdivide Mesh」ボタンでメッシュを分割したときにbone weightが消失してしまうバグを修正しました。
+
+・AutoRemesh Sculpt時にbone weightが消失するバグを修正しました。
+
+・Prefabを作成するさいに、ポリゴンを増加させてしまうバグを修正しました。
+
+・BlendShapeを消去できるようになりました。消去するには、
+　Editor Sculptウィンドウの「Animation」折り込みタブの「Delete BlendShape」チェックボックスをオンにすると現れる
+　「Delete BlendShape:」ポップアップメニューから消去したいBlendShapeを選択し、「Delete」ボタンを押してください。
+
+・「Build Skinned MeshRenderer」の動作をUndoできるようにしました。
+
+。アニメーションやSkinned MeshRendererの細かいバグ修正をしました。
+
+<v1.30>
+・スカルプトしたものをBlendShapeとして保存できるようにしました。
+ EditorSculptウィンドウの「Animation」折り込みメニューの「Build SkinnedMeshRenderer」ボタンを押すことで、
+ Skinned Meshを作成し、「Start Record BlendShape」ボタンを押すことでBlendShapeとして保存できます。
+　（Standard Sculptでのみできます。AutoRemesh Sculptでは不可能です。）
+
+・FBX形式の3Dモデルのアニメーションへの対応を大幅に改善しました。
+
+・Undoが機能しなくなるバグを修正しました。
+・FBX形式のメッシュのインポート設定を書き換えてしまうバグを修正しました。
+
+・BlendShapeを持つメッシュをSubdivideするときに、BlendShapeごとSubdivideできるようにしました。
+　（Standard Sculptでのみできます。AutoRemesh Sculptでは不可能です。）
+
+・Skinned Mesh Render形式のメッシュをAutoRemesh sculptでスカルプトするさいにメッシュが壊れてしまうバグを修正しました。
+
+・AutoRemesh Sculpt時に「Remesh」または「Smooth」ボタンを押したさいに、メッシュに穴を開けてしまうことがあるバグを修正しました。
+
+・AutoRemesh Sculptの警告ダイアログのテキストをBlendShapeの情報を表示するように変更しました。
+
+・Skinned Mesh Render形式のメッシュが、Root Boneが空の場合に保存されないバグを修正しました。
+
+・Unity 2019.1.4 とUnity2019.2betaとUnity2019.3alphaに対応しました。
+
+<v1.27>
+・Unity 2019.2 betaで動作しないバグを修正しました。
+
+・Unity 2019.1でUnityを終了した際にメッシュが破壊されることがあるバグを修正しました。
+　（もしこのバグでメッシュを破壊してしまっていたら、AssetDatabaseでPrefabアセットをreimportすることで、
+　修正することができます。）
+
+・Unity 2019.1でテクスチャペイントしようとしたときに、シーンが暗くなってしまうバグを修正しました。
+
+・3Dモデルを保存するさいにファイル保存パネルを表示するようにしました。
+
+・メッシュをPrefabに追加するオブジェクトとしてでなく、「.asset」ファイルとして保存するようにしました。
+　これにより多くのバグが修正されるでしょう。
+
+・Unity2019.1とUnity2019.2 betaに対応しました。
+
+・そのほかUnity2019.1とUnity2019.2 betaで起こる細かいバグを修正しました。
+
+・おまけとして、次のアップデートで追加される新機能をテストできるようにしました。
+　「Tools/EditorSculpt/Extra/Try Beta Brushes」メニューを選ぶと、
+　EditorSculptのWindowに新しい「Animation」折り込みメニューが現れます。
+
+<v1.26>
+・「Select Mesh for Sculpt」メニューからメッシュを選択した際に、たまにスカルプト出来なくなるバグを修正しました。
+
+・Unity2018.3の新しいPrefab機能への対応をさらに改善し、Prefabをtransformを含めて作成出来るようにしました。
+
+・メッシュをPrefab化するさいに元のメッシュのプロパティ値を保持できるようにしました。
+
+・FBX形式のメッシュへの対応を改善しました。
+
+・FBX形式の3Dモデルをアニメーションを保持したままスカルプトできるようにしました。
+
+・Skinned Mesh Render形式のメッシュをスカルプトするさいにBounds情報が失われるバグを修正しました。
+
+・Skinned Mesh Render形式のメッシュをスカルプトするさいにBindPose情報が失われるバグを修正しました。
+
+・Skinned Mesh Render形式のメッシュをスカルプトするさいにBoneWeight情報が失われるバグを修正しました。
+
+・Skinned Mesh Render形式のメッシュをスカルプトするさいにBlendShapeを保持できるようにしました。
+　（「Standard Sculpt」だけ可能で、「AutoRemesh Sculpt」では出来ません。）
+
+・「Standard Sculpt」か「AutoRemesh Sculpt」かをウィンドウに表示するようにしました。
+
+・そのほか細かいバグ修正をしました。
+
+<v1.25>
+・AutoRemeshスカルプトで左右対称にスカルプトしている場合、メッシュがおかしくなるバグを修正しました。
+
+・「Select Mesh for Sculpt」メニューで、正しく3Dモデルが選択されない場合があるバグを修正しました。
+
+・たまに外部から読み込んだ3Dモデルのテクスチャを書き換えてしまうバグを修正しました。
+
+・AutoRemeshスカルプトで3モデルの選択を変更した際に、メッシュがおかしくなるバグを修正しました。
+
+・「Select Mesh for Sculpt」メニューからアセットの3Dモデルを選択できるようになりました。
+
+・Unity2018.3の新しいPrefab機能への対応を改善しました。
+
+・メッシュを選択したさいに、そのメッシュが画面の中央になるようカメラを移動するようにしました。
+
+・Unity2018.3の新しいAPIに対応しました。
+
+・そのほか細かいバグ修正をしました
+<v1.25>
+・AutoRemeshスカルプトで左右対称にスカルプトしている場合、メッシュがおかしくなるバグを修正しました。
+
+・「Select Mesh for Sculpt」メニューで、正しく3Dモデルが選択されない場合があるバグを修正しました。
+
+・たまに外部から読み込んだ3Dモデルのテクスチャを書き換えてしまうバグを修正しました。
+
+・AutoRemeshスカルプトで3モデルの選択を変更した際に、メッシュがおかしくなるバグを修正しました。
+
+・「Select Mesh for Sculpt」メニューからアセットの3Dモデルを選択できるようになりました。
+
+・Unity2018.3の新しいPrefab機能への対応を改善しました。
+
+・メッシュを選択したさいに、そのメッシュが画面の中央になるようカメラを移動するようにしました。
+
+・Unity2018.3の新しいAPIに対応しました。
+
+・そのほか細かいバグ修正をしました
+
+<v1.24>
+・Unity 2018.3で動作しない問題を修正しました。
+
+・Unity 2018.3に対応しました。
+
+・外部から読み込んだ3Ｄモデルのテクスチャを読み込まないことがあるバグを修正しました。
+
+・3Dモデルを保存した時に、テクスチャが保存されないことあがるバグを修正しました。
+
+・「Save Texture」ボタンでテクスチャを保存した際に、そのテクスチャが消失してしまうバグを修正しました。
+
+・「Bake Vertex Color」ボタンが動作しないバグを修正しました。
+
+・複数のマテリアルを持つ3Dモデルのテクスチャが描けないことがあるバグを修正しました。
+
+・そのほか細かいバグ修正をしました。
+
+を切り替えた際に、たまにキーボードショートカットが働かなくなるバグを修正しました。
+
+・そのほか細かいバグ修正をしました。
+
+<v1.23>
+・スカルプトのブラシを大幅に改良しました。
+　複数のメッシュの表面にブラシが接する場合に、最も近い表面を検出してそこをスカルプトするようにしました。
+
+・Skinned Mesh Render形式のメッシュもスカルプトできるようになりました。
+
+・「Tools/EditorSculpt/Texture Paint」メニューからテクスチャをペイントしたさいに、たまにテクスチャが保存されないバグを修正しました。
+
+・「.jpg」「.png」画像形式のテクスチャしか外部テクスチャを読み込めないバグを修正しました。
+
+・外部から読み込んだ3Ｄモデルのインポート設定を書き換えてしまうバグを修正しました。
+
+・たまに正確に3Ｄモデルを選択できないバグを修正しました。
+
+・prefabオブジェクトを選択してスカルプトできるようにしました。
+
+・「Resize Texture」ボタンが機能しないバグを修正しました。
+
+・そのほか細かいバグ修正をしました。
+
+<v1.22>
+・複数のマテリアルを持つ3Dモデルのテクスチャを描くさいに、どのマテリアルのテクスチャを描くか選択できるようにしました。
+
+・３Dモデルを「.unitypackage」形式でパッケージ化して保存できるようにしました。
+
+・3Dモデルを保存した時にテクスチャがうまく割り当てられないバグを修正しました。
+
+・「Tools/EditorSculpt/Texture Paint」メニュ-からプリミティブな3Dモデル（Plane、Sphere、Cube）のテクスチャをペイントしようとしたときに、
+　たまに3Dモデルがおかしくなるバグを修正しました。
+
+・インポートされたFBXモデルをいったん保存してロードし直したときに、3Dモデルを黒くしてしまうバグを修正しました。
+
+・プロジェクト内に同名の３Dモデルが存在するときに3Dモデルがおかしくなるバグを修正しました。
+
+・３Dモデルを「duplicate」コマンドで複製した時に3Dモデルがおかしくなるバグを修正しました。
+
+・3Dモデルを保存した際にマスクが無くなってしまうバグを修正しました。
+
+・テクスチャペイントとスカルプトを切り替えた際に、たまにキーボードショートカットが働かなくなるバグを修正しました。
+
+・そのほか細かいバグ修正をしました。
+
+<v1.21>
+・外部から取り込んだ3Dモデルを黒くしてしまうバグを修正しました。
+
+・法線マップのある3Dモデルを黒くしてしまうバグを修正しました。
+
+・「Export」時にたまにテクスチャを出力しないことがあるバグを修正しました。
+
+・「Tools/EditorSculpt/Texture Paint」メニュ-からテクスチャをペイントしようとしたときに、
+たまにモデルがおかしくなるバグを修正しました。
+
+・そのほか細かいバグ修正をしました。
+
+<v1.20>
+・AutoRemeshを大幅に改良し、
+完全にリアルタイムにメッシュを細分化するようにしました。
+何度もこの機能をテストしてみてまだバグは見つかっていませんが、
+慎重に作業したいなら、"Show Advanced Options/Realtime AutoRemesh" 
+のチェックボックスのチェックを外してください。
+
+・Standard SculptとAutoRemesh Sculptを切り替えた場合に、たまにメッシュに穴が開いてしまうバグを修正しました。
+
+・巨大なメッシュをAutoRemshでスカルプトしたさい、
+「Etrude」ブラシと「Dig」ブラシでエラ－が発生するバグを修正しました。
+
+・プリミティブなメッシュ（Sphere, Cube, Plane）の解像度が変更できるようになりました。
+
+・「Auto Close Hole」が大幅に改良されました。
+以前よりも多くの穴を修正できるようになり、より安全に動作するようになりました。
+
+・「Smooth」ブラシのスピ－ドを改善しました。
+
+・そのほか細かいバグ修正をしました。
+
+<v1.19>
+バグ修正のための臨時の更新です。
+・AutoRemesh時に黒いポリゴンが出来てしまうバグを修正しました。
+　しかし、そのためにAutoRemeshのスピ－ドが少し遅くなりました。
+（v1.18に比べて30％遅くなりました。）
+もしあなたが、この更新を望まなくて、よりスピ－ドを出したい場合は、
+「Show Advanced Options/Auto Fix BlackPoly」のチェックボックスのチェックを外してくだい。
+
+<v1.18>
+・「Show Advanced Options」メニュ-内の「Auto Close Hole」項目が機能していないバグを修正しました。これはメッシュの穴を自動的に修正します。
+
+・AutoRemesh時にたまにポリゴンが反転して、穴が開いたようになってしまうバグを修正しました。
+
+・AutoRemeshの速度を改善しました。「Auto Close Hole」をオンにした場合でも約20%のスピ－ドアップです。
+
+・「Inflat」ブラシでたまにメッシュを切断してしまうバグを修正しました。
+
+・v1.17で「Flatten」ブラシの動作がおかしくなったバグを修正しました。
+
+・「Flatten」ブラシを大幅に改良しました。
+
+・別のメッシュを選択した場合に、メッシュが時々おかしくなるバグを修正しました。
+
+・「Edit Mesh/Reverse Polygon」 ボタンが機能しないバグを修正しました。
+
+・「Edit Mesh/Merge Doubled Vertex」 ボタンを押した場合にメッシュが時々おかしくなるバグを修正しました。
+
+・「Edit Mesh/Solid Subdivide」、「Edit Mesh/Subdivide Mesh」、「Edit Mesh/Decimate Mesh」、
+　および「Edit Mesh/Close Holes」のスピードを大幅に上昇しました。2倍以上のスピードアップです。
+
+・そのほか細かいバグ修正とスピ－ドアップをしました。
+
+<v1.17>
+バグ修正のための臨時の更新です。
+・v1.16でSmoothブラシの筆圧が弱すぎるバグを修正しました。
+
+・AutoRemesh時にたまに穴が開いたり、いびつなポリゴンが生成されてしまうバグを修正しました。
+
+・"Advanced Option"メニュ-内の"AutoRemsh Degree"の値が有効でないバグを修正しました。
+
+・Smoothブラシのクォリティを大幅に改良しました。
+
+・AutoRemeshのクォリティを大幅に改良しました。
+
+・そのほか様々の細かいバグ修正
+
+<v1.16>
+・頂点数65000以上の巨大なポリゴンメッシュをスカルプトやペイントすることができるようになりました。
+
+・頂点カラーをテクスチャにベイクすることができるようになりました。
+
+・Smoothブラシのクォリティを向上しました。
+
+・LineRenderコンポーネントを含むメッシュをスカルプトできないバグを修正しました。
+
+・AutoRemeshスカルプトでSymmetry時に頂点カラーやマスクを描くと、時々エラーが発生するバグを修正しました。
+
+・AutoRemesh時にConsoleにたまにエラーメッセージが表示されるバグを修正しました。
+
+・EditorSculptのウィンドウを開いた時に、マスクの情報をチェックし、もしエラーがあればそれを修正するようにしました。
+　これによりいくつかのバグが修正されるはずです。
+
+・”BETA_Decal”が複数のデカールのサポートや、テクスチャの歪みの修正、
+　Symmetry（左右対称）のサポートを含めて大幅に改良されました。
+　しかし、まだ製作途中のベータ段階です。
+
+・”BETA_Spline”がSymmetryのサポートを含めて大幅に改良されました。
+　しかし、まだ製作途中のベータ段階です。
+
+・Unityのバージョン2017.3に対応しました。
+
+・そのほか様々の細かいバグ修正。
+
+<v1.15>
+・メッシュをエクスポートするときにポリゴン三角が無くなってしまうバグを修正しました。
+
+・AutoRemesh Sculptのスピ－ドを改善しました。2倍以上のスピ－ドアップです。
+
+・「Subdivide Mesh/Solid SubdivideMesh」のスピ－ドを改善しました。
+
+・「obj」形式で書き出すときに、まれにテクスチャが保存されないバグを修正しました。
+
+・v1.14ではAutoRemeshスカルプトで、メッシュのUVをできる限り保護するようにしましたが、v1.15ではそれをさらに改善しました。
+
+・Unity5.６に対応しました。
+
+・メッシュをエクスポ－トする時にテクスチャの透明度を出力しないようにしました。もし、出力したいのであれば"Save/Export" 折り込みメニュ－の 「Export Texture Alpha」オプションで元に戻すことが出来ます。
+
+・メッシュをエクスポ－トする時に「Merge Doubled Vertices」オプションを選択できるようにしました。。
+
+・「Advanced Options」に「Enable Debug Mode」オプションを追加しました。これはUnityのコンソ－ルにブラシやメッシュの様々な情報を表示します。
+
+・「AutoRemesh Sculpt」だけでなく、「Standard Sculpt」でもメッシュのポリゴン解像度を表示できるようにしました。
+これは「EditMesh」折り込みメニューにあります。
+
+・そのほか、様々の細かいバグ修正。
+
+・「BETA_Texture」ブラシが大幅に改良されました。しかし、まだ製作途中のベータ段階です。
+
+<1.14>
+・AutoRemesh Sculptで、「Move」ブラシが時々動作がおかしくなるバグを修正しました。
+
+・「Move」ブラシの動作を向上させました。
+
+・「DisplayMode」が「Texture」の時、EditorSculptウィンドウを閉じて再起動したときにマテリアルが真っ黒になるバグを修正しました。
+
+・「Inflat」ブラシと「Pinch」ブラシの動作がEditorSculptのバージョンv1.11以降おかしくなったバグを修正しました。
+
+・AutoRemeshスカルプトで、メッシュのUVをできる限り保護するようにしました。
+　これはメッシュのUVを完全に保つわけでもありませんし、AutoRemesh Sculptでテクスチャがペイントできるようになるわけでもありませんが、
+　Editor Sculptでの作業をより安全に行うことができるようにできます。
+　例えば、Editor Sculptのv1.13以前のバージョンでは、
+誤ってメニューからAutoRemesh Sculptを選んでしまった場合にUVがなくなってしまいますが、
+Editor Sculptのv1.14以降のバ－ジョンではこの場合でもメッシュのUVは守られます。
+また、このEditor Sculptのv1.14の変更によって多くのUVやテクスチャ関連のバグが修正されると思います。
+
+・「BETA_Texture」ブラシが大幅に改良されました。しかし、まだ製作途中のベータ段階です。
+
+・「BETA_Spline」ブラシが、「Spline Action : Move Point」の改良や、インタフェースの向上、Unity 5.5の新しいLine Rendererへの互換やその他の点を含めて大幅に改良されました。しかし、まだ製作途中のベータ段階です。
+
+<1.13>
+・EditorSculptウィンドウを閉じて再起動したときに、テクスチャペイントが動作しなくなるバグを修正しました。
+
+・「Tools/EditorSculpt/Texture Paint」メニュ－を選択したさいに、たまにEditorSculptウィンドウがフリ－ズするバグを修正しました。
+
+・Save Scene/Load Scene をより安全に行えるようにまた改善しました。
+
+・開発途中のベ－タ版のブラシを、Standard Sculptに属する「Try Beta Brushes」と
+AutoRemesh Sculptに属する「Try Beta Brushes(Auto Remesh)」とに分けることにしました。
+これらは、メニュ－の「Tools/EditorSculpt/Extra/Try Beta Brushes」と、「Tools/EditorSculpt/Extra/Try Beta Brushes(AutoRemesh)」
+にあります。
+
+・新しい、開発途中のベータ版でまだ動作しないブラシ「BETA_Texture」を追加しました。
+　このブラシは「Try Beta Brushes(Auto Remesh)」でのみ使うことが出来ます。
+このブラシは、Standard Brushでの「Texture Paint」の代わりのブラシですが、まだ動作しない開発途中のベ－タ版のブラシです。
+メニュ－の「 Tools/EditorSculpt/Extra/Try Beta Brushes(AutoRemesh)/BETA_Texture」からこのブラシを試すことができます。
+
+
+・「SubdivideMesh」 ボタンと 「SolidSubdivide」ボタンをStandard Sculptだけでなく、AutoRemesh Sculptでも使用可能にしました。
+
+・「BETA_Repair」ブラシを、ポリゴンの穴を塞ぐ動作を追加することを含めて
+改良しました。
+しかし、まだ開発途中のベ－タ版のブラシのままです。
+
+<1.12>
+バグ修正だけの更新です。
+・EditorSculptウィンドウを開いたままUnity3Dを再起動すると、スカルプトのブラシが動作しないバグを修正しました。
+
+・Save Scene/Load Scene をより安全に行えるように改善しました。
+
+<1.11>
+・「Advance Sculpt」の名前を「AutoRemesh Sculpt」に変更しました。
+
+・新しいブラシ「Texture Paint」を追加しました。このブラシはメッシュのテクスチャを3D空間に直接描写することが出来ます。
+このブラシは「Standard Sculpt」モードでのみ利用可能で、「AutoRemesh Sculpt」モードでは利用できません。
+ 「AutoRemesh Sculpt」については、今のところ頂点カラ－でしかメッシュへ色を付けることができません。ですが「BETA_Decal」はこの問題を解決する目的で開発中ですし、また 「AutoRemesh Sculpt」で色を付ける別の方法も開発中ですから、それらを待ってください。
+
+・「BETA_Decal」ブラシが、テクスチャの描写の向上を含め、大幅に修正されました。しかし、まだ製作途中のベータ段階です。
+
+・メッシュに重複した頂点がたくさんあると、ブラシの動作がおかしくなるバグを修正しました。
+
+・重複した頂点がたくさんあるメッシュをスカルプトしたときの警告ダイアログを表示しないようにしました。もし、このダイアログを再び表示させたいのであればEditorSculptウィンドウ内の「Show Advanced Options」折り込みメニュ－を開いて、「Fix Doubled Vertex」チェックボックスをオンにしてください。
+
+・EditorSculptで作られたプリミティブ、「Plane」, 「Cube」, 「Sphere」 にそれぞれUV座標を追加しました。
+
+・「Move」ブラシの動作を向上させました。
+
+・Unityのバージョン5.5に対応しました。
+
+・カメラがパースペクティブな場合で「Move」ブラシを使っているときに左右対称が有効にならないバグを修正しました。
+
+・一部の環境で「.obj」ファイル形式でエクスポ－トができないバグを修正しました。
+
+・EditorSculptメニュ－を開かずにUnityのトップメニュ－の「Tools/EditorSculpt/Save Mesh/Save」メニュ－からメッシュを保存しようとしても出来ないバグを修正しました。
+
+・EditorSculptウィンドウ内の「Edit Mesh」折り込みメニュ－内の「Invert Mask」ボタン、「Clear Mask」ボタンを押したときに頂点ウェイトの値が変化するバグを修正しました。
+
+
+<1.02>
+・「ClassicSculpt」の名前を「StandardSculpt」に変更しました。
+
+・「Advanced Sculpt」について説明不足で、すみませんでした。このツールはメッシュのＵＶを破壊します。
+なので、テクスチャが貼られたメッシュをスカルプトするとメッシュが黒くなってしまい、再度テクスチャを貼り付けても
+黒いままになってしまいます。これを避けるため、テクスチャの貼られたメッシュをスカルプトする場合、
+「StandardSculpt」を選択してください。
+また、その説明を「Readme_Japanese.txt」や他のアッセトの説明文に書き加えました。
+
+・もし、「Advanced Sculpt」のこの動作でトラブルがあった場合はUnityのメニューから「Undo」を選んで
+Undo操作(「Edit/Undo」) を行うことで修正することができます。
+
+・メニューから「Advanced Sculpt」を選んだ場合に、警告ダイアログが表示されるようにしました。
+もしこれがうっとうしく感じられるなら、代わりに「EditorSculpt/Extra/AdvancedSculptNodialog」を使うことができます。
+
+・「Decal」ブラシが、エディタのカメラがパースペクティブでは動作しないバグの修正を含め、大幅に修正されました。
+しかし、まだ製作途中のベータ段階です。
+
+・「Spline」ブラシが大幅に修正されました。しかし、まだ製作途中のベータ段階です。
+
+・そのほか、ＧＵＩの向上や細かいバグの修正など。
+
+
+<1.01>
+・EditorSculptのメニューの場所ををトップメニューから、「Tools」メニューへと変更しました。
+「Tools/EditorSculpt/AdvancedSculpt」でEditorSculptをスタートできます。
+
+・一部の環境で、EditorSculptがメニューに表示されなくてスタートできないバグを修正しました。
+
+・Unityのバージョン5.3.5f1に対応しました。
+
+・「Decal」ブラシが動作しないバグを修正しました。
+ただ、これはまだエディタのカメラがパースペクティブでは動作しません。「Decal」ブラシを使うにはエディタのカメラをisoや平行投影へと変更してください。
+また、「Decal」ブラシをまだ製作途中のベータ版としました。
+
+・製作途中のベータ版のブラシを利用できるようにしました。
+メニューの「Tools/EditorSculpt/Extra/Try Beta Brushes」にあります。
+
+・ビルド用ツールをVisual Studio2015 からMonoDevelopに変更しました。これによって一部の「.dll」ファイルの名前が変更になりました。
+今のところ、これによる問題は見つかっていませんが、慎重に作業したいならEditorSculpt 1.00 がインストールされたプロジェクト内の「EditorSculpt」フォルダを消去してからEditorSculptの1.01をインポートしてください。

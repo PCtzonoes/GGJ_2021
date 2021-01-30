@@ -6,9 +6,11 @@ public class Chase : MonoBehaviour
 {
     public Transform Player;
     private Rigidbody rb;
+    private float stunTime = 0;
 
-    public float MoveSpeed = 4;
-    public float LungeSpeed = 2;
+    public float moveSpeed = 4;
+    public float totalStun = 60;
+    public float lungeMultiplier = 2;
     public float noticeDistance = 10;
     public float lungeDistance = 5;
 
@@ -23,12 +25,24 @@ public class Chase : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        float curSpeed = MoveSpeed;
+    { 
+        float curSpeed = moveSpeed;
+
+        if (stun)
+        {
+            curSpeed = 0;
+            stunTime++;
+
+            if(stunTime >= totalStun)
+            {
+                stun = false;
+            }
+        }
+
         transform.LookAt(Player);
                 if (Vector3.Distance(transform.position, Player.position) <= lungeDistance)
         {
-            curSpeed = curSpeed * LungeSpeed;//lunge or somethin
+            curSpeed = curSpeed * lungeMultiplier;//lunge or somethin
             
         }
 
@@ -40,6 +54,15 @@ public class Chase : MonoBehaviour
         else
         {
             //close = false;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "LightStun")
+        {
+            stunTime = 0;
+            this.stun = true;
         }
     }
 }

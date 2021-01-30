@@ -8,10 +8,12 @@ public class PlayerControl : MonoBehaviour
     public float speed = 0.0f;
     public float maxSpeed = 3.0f;
     public float accl = 0.5f;
+    public GameObject flashlight;
 
-    private float maxBattery = 100;
-    private float batteryConsumption = 1;
-    private float currentBattery = 100;
+    private bool lightOn = false;
+    private double maxBattery = 100;
+    private double batteryConsumption = 0.01;
+    private double currentBattery = 100;
 
     private float inputX;
     private float inputY;
@@ -24,6 +26,7 @@ public class PlayerControl : MonoBehaviour
         GetComponent<Rigidbody>().freezeRotation = true;
         xMove = 0.0f;
         yMove = 0.0f;
+        flashlight.SetActive(false);
     }
 
     private void OnMove(InputValue movementValue)
@@ -34,6 +37,25 @@ public class PlayerControl : MonoBehaviour
         inputY = movementVector.y;
     }
 
+    private void OnFire()
+    {
+        if (flashlight != null && currentBattery > 0)
+        {
+            lightOn = true;
+            flashlight.SetActive(true);
+        }
+    }
+
+    private void OnRelease()
+    {
+        if (flashlight != null)
+        {
+            lightOn = false;
+            flashlight.SetActive(false);
+        }
+    }
+
+    //player movement
     private void FixedUpdate()
     {
         //movement on X
@@ -79,4 +101,18 @@ public class PlayerControl : MonoBehaviour
         transform.Translate(newPosition, Space.World);
     }
 
+    //flashlight
+    private void Update()
+    {
+        //print(currentBattery);
+        if (lightOn)
+        {
+            currentBattery -= batteryConsumption;
+            if(currentBattery <= 0)
+            {
+                currentBattery = 0;
+                OnRelease();
+            }
+        }
+    }
 }

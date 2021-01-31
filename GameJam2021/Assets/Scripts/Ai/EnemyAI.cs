@@ -33,6 +33,8 @@ public class EnemyAI : MonoBehaviour
     private StatesAI _currentState = StatesAI.Patrol;
 
     public StatesAI CurrentState { get => _currentState; }
+    [SerializeField]
+    private Transform _eyePosition;
 
     // Start is called before the first frame update
     void Start()
@@ -137,5 +139,44 @@ public class EnemyAI : MonoBehaviour
                 _currentState = StatesAI.Stunned;
             }
         }
+    }
+
+    bool _playerInRange = false;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (this.Player.gameObject == other.gameObject)
+        {
+            Debug.Log($"trigguered: {other.gameObject.name}");
+            _playerInRange = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (this.Player.gameObject == other.gameObject)
+        {
+            Debug.Log($"trigguered Out: {other.gameObject.name}");
+            _playerInRange = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (_playerInRange == false || this.CurrentState != EnemyAI.StatesAI.Patrol) return;
+        RaycastHit hit;
+        Vector3 target = new Vector3(this.Player.transform.position.x,
+        this.Player.transform.position.y + 0.25f,
+        this.Player.transform.position.z);
+        if (Physics.Linecast(_eyePosition.position, target, out hit))
+        {
+
+            Debug.Log(hit.transform.name);
+            if (hit.transform.gameObject == this.Player)
+            {
+                this.PlayerFound();
+            }
+        }
+        else Debug.Log("raycast Fail");
+
     }
 }

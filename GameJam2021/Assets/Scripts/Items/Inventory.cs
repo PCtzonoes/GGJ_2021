@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public delegate ItemSO ItemPicker();
+    public delegate void ItemPicker(ItemSO item);
+
     public static event ItemPicker OnPickUp;
 
     private Dictionary<ItemSO, int> _items = new Dictionary<ItemSO, int>();
@@ -22,7 +23,7 @@ public class Inventory : MonoBehaviour
         }
         else Items.Add(item, 1);
 
-        OnPickUp?.Invoke();
+        OnPickUp?.Invoke(item);
     }
 
     private void OnTriggerEnter(Collider other)

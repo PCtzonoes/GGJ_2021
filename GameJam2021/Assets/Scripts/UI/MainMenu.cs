@@ -8,8 +8,16 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     public string firstSceneName = "TestScene";
 
-    public void NewGame()
+    [SerializeField]
+    public string instructionScene = "Instructions";
+
+    public void LoadScene()
     {
         SceneManager.LoadScene(firstSceneName);
+    }
+
+    public void InstructionScene()
+    {
+        SceneManager.LoadScene(instructionScene);
     }
 }

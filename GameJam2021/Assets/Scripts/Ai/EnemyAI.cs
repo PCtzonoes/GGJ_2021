@@ -77,7 +77,8 @@ public class EnemyAI : MonoBehaviour
         if (stun)
         {
             curSpeed = 0;
-            stunTime++;
+            rb.velocity = Vector3.zero;
+            stunTime += Time.fixedDeltaTime;
 
             if (stunTime >= totalStun)
             {
@@ -133,8 +134,9 @@ public class EnemyAI : MonoBehaviour
         if (other.tag == "LightStun")
         {
             var allButTriggers = ~(1 << 8);
-            if (!Physics.Linecast(transform.position, Player.transform.position, allButTriggers))
+            if (Physics.Linecast(transform.position, Player.transform.position, allButTriggers))
             {
+                Debug.Log("stun");
                 stunTime = 0;
                 this.stun = true;
                 _currentState = StatesAI.Stunned;

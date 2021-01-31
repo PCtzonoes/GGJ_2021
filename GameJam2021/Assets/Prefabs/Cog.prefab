@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 8081593028170795686}
   m_Layer: 0
   m_Name: Cog
-  m_TagString: Untagged
+  m_TagString: Cog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

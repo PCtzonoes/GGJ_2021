@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: eecc0b07ef057824b8dc469f847acc1d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - item: {instanceID: 0}
+  - tempParent: {instanceID: 0}
+  - crosshair: {instanceID: 0}
+  - holdingHand: {instanceID: 0}
+  - pointingHand: {instanceID: 0}
+  - originalParent: {instanceID: 0}
+  - electricVFX: {fileID: 1429359842772573404, guid: 647e60bec875ca346bb1c79b453de619,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

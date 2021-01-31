@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerControl : MonoBehaviour
 {
     public float speed = 0.0f;
-    public float maxSpeed = 3.0f;
+    public float maxSpeed = 10.0f;
     public float accl = 0.5f;
     public GameObject flashlight;
 
@@ -20,10 +20,13 @@ public class PlayerControl : MonoBehaviour
     private float xMove;
     private float yMove;
 
+    private Rigidbody _rb;
+
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody>().freezeRotation = true;
+        _rb = GetComponent<Rigidbody>();
+        _rb.freezeRotation = true;
         xMove = 0.0f;
         yMove = 0.0f;
         flashlight.SetActive(false);
@@ -62,7 +65,7 @@ public class PlayerControl : MonoBehaviour
         xMove += inputX * accl;
 
         //if no input, come to stop
-        if(inputX == 0)
+        if (inputX == 0)
         {
             xMove = xMove * accl;
         }
@@ -98,7 +101,8 @@ public class PlayerControl : MonoBehaviour
 
         Vector3 newPosition = new Vector3(xMove * speed * Time.fixedDeltaTime, 0.0f, yMove * speed * Time.fixedDeltaTime);
         transform.LookAt(newPosition + transform.position);
-        transform.Translate(newPosition, Space.World);
+
+        _rb.velocity = new Vector3(xMove * speed, 0, yMove * speed);
     }
 
     //flashlight
@@ -108,7 +112,7 @@ public class PlayerControl : MonoBehaviour
         if (lightOn)
         {
             currentBattery -= batteryConsumption;
-            if(currentBattery <= 0)
+            if (currentBattery <= 0)
             {
                 currentBattery = 0;
                 OnRelease();

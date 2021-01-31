@@ -12,7 +12,7 @@ public class Chase : MonoBehaviour
     public float totalStun = 60;
     public float lungeMultiplier = 2;
     public float noticeDistance = 10;
-    public float lungeDistance = 5;
+    public float lungeDistance = 3;
 
     private bool close = false; // true when in chase of player
     private bool stun = false; // true when light is on player
@@ -20,12 +20,13 @@ public class Chase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody>().freezeRotation = true;
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
     }
 
     // Update is called once per frame
     void Update()
-    { 
+    {
         float curSpeed = moveSpeed;
 
         if (stun)
@@ -33,23 +34,23 @@ public class Chase : MonoBehaviour
             curSpeed = 0;
             stunTime++;
 
-            if(stunTime >= totalStun)
+            if (stunTime >= totalStun)
             {
                 stun = false;
             }
         }
 
         transform.LookAt(Player);
-                if (Vector3.Distance(transform.position, Player.position) <= lungeDistance)
+        if (Vector3.Distance(transform.position, Player.position) <= lungeDistance)
         {
             curSpeed = curSpeed * lungeMultiplier;//lunge or somethin
-            
+
         }
 
         if (Vector3.Distance(transform.position, Player.position) <= noticeDistance)
         {
             //close = true;
-            transform.position += (transform.forward * curSpeed * Time.deltaTime);
+            rb.velocity = (transform.forward * curSpeed);
         }
         else
         {

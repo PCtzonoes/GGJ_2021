@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public delegate void ExitOpenHandler();
 
 public class GameManager : MonoBehaviour
 {
     public static event ExitOpenHandler ExitOpen;
+
+    public string nextScene;
 
     [SerializeField]
     private int _gameObjectives = 3;
@@ -21,6 +24,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        // Level Objectives
+        _gameObjectives = GameObject.FindGameObjectsWithTag("Circuit").Length;
+
         // Player Controller
         _playerControl = FindObjectOfType<PlayerControl>();
 
@@ -30,7 +36,7 @@ public class GameManager : MonoBehaviour
 
         Debug.Log(_playerControl.currentBattery);
         _hudController.UpdateBatteryLife((int)_playerControl.currentBattery);
-        StartCoroutine(UpdateBatteryHud());
+        StartCoroutine(UpdateHud());
 
         // Add Inventory
         _inventory = FindObjectOfType<Inventory>();
@@ -40,22 +46,22 @@ public class GameManager : MonoBehaviour
         _exit = FindObjectOfType<Exit>();
         _exit.LevelFinish += _exit_LevelFinish;
 
-        // Level Objectives
-        _gameObjectives = GameObject.FindGameObjectsWithTag("Circuit").Length;
     }
 
-    IEnumerator UpdateBatteryHud()
+    IEnumerator UpdateHud()
     {
         while (isGameActive)
         {
-            yield return new WaitForSeconds(1);
             _hudController.UpdateBatteryLife((int)_playerControl.currentBattery);
+            _hudController.UpdateCircuits(_gameObjectives);
+            yield return new WaitForEndOfFrame();
         }
     }
 
     private void _exit_LevelFinish()
     {
         Debug.Log("Level is done");
+        SceneManager.LoadScene(nextScene);
         // TODO: Call Render new scene here object here
     }
 
@@ -66,7 +72,6 @@ public class GameManager : MonoBehaviour
             case ItemSO.ItemType.Circuit:
                 Debug.Log("Picked up Circuit");
                 _gameObjectives--;
-                _hudController.UpdateCircuits(_gameObjectives);
                 break;
             case ItemSO.ItemType.Cog:
                 Debug.Log("Picked up Cog");

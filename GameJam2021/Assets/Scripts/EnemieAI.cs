@@ -53,7 +53,15 @@ public class EnemieAi : MonoBehaviour
             case StatesAI.Chasing:
                 Chasing();
                 break;
+            case StatesAI.Patrol:
+                Patrol();
+                break;
         }
+    }
+
+    private void Patrol()
+    {
+
     }
 
     private void Chasing()
@@ -62,7 +70,6 @@ public class EnemieAi : MonoBehaviour
         if (Vector3.Distance(transform.position, Player.position) <= lungeDistance)
         {
             curSpeed = curSpeed * lungeMultiplier;//lunge or somethin
-
         }
 
         if (Vector3.Distance(transform.position, Player.position) <= noticeDistance)
@@ -73,11 +80,6 @@ public class EnemieAi : MonoBehaviour
         {
             _currentState = StatesAI.Patrol;
         }
-    }
-
-    private IEnumerator Patrol()
-    {
-        throw new NotImplementedException();
     }
 
     private void OnTriggerStay(Collider other)

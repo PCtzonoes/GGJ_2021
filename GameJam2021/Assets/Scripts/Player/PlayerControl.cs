@@ -17,7 +17,7 @@ public class PlayerControl : MonoBehaviour
     private Vector3 aimDirection;
     private bool lightOn = false;
     private float maxBattery = 100;
-    private float batteryConsumption = 0.01f;
+    private float batteryConsumption = 0.04f;
     private float _currentBattery = 100;
     public float currentBattery
     {

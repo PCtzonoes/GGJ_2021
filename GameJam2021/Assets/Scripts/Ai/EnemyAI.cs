@@ -109,7 +109,8 @@ public class EnemyAI : MonoBehaviour
 
     private void Chasing()
     {
-        transform.LookAt(Player.transform);
+        var playerFoot = new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z);
+        transform.LookAt(playerFoot);
         if (Vector3.Distance(transform.position, Player.transform.position) <= lungeDistance)
         {
             curSpeed = curSpeed * lungeMultiplier;//lunge or somethin
@@ -177,6 +178,5 @@ public class EnemyAI : MonoBehaviour
             }
         }
         else Debug.Log("raycast Fail");
-
     }
 }

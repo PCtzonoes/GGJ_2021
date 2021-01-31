@@ -28,7 +28,6 @@ public class HudController : MonoBehaviour
 
     public void UpdateCircuits(int ciruitsVal)
     {
-        Debug.Log("Updating Circuits");
         circuits.text = "Ciruits: " + ciruitsVal;
     }
 }

@@ -1,12 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chase : MonoBehaviour
+public class EnemieAi : MonoBehaviour
 {
     public Transform Player;
     private Rigidbody rb;
     private float stunTime = 0;
+    float curSpeed = 0;
 
     public float moveSpeed = 4;
     public float totalStun = 60;
@@ -16,6 +18,12 @@ public class Chase : MonoBehaviour
 
     private bool close = false; // true when in chase of player
     private bool stun = false; // true when light is on player
+
+    private enum StatesAI
+    {
+        Patrol, Chasing, Stunned
+    }
+    private StatesAI _currentState;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +35,7 @@ public class Chase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float curSpeed = moveSpeed;
+        curSpeed = moveSpeed;
 
         if (stun)
         {
@@ -40,6 +48,16 @@ public class Chase : MonoBehaviour
             }
         }
 
+        switch (_currentState)
+        {
+            case StatesAI.Chasing:
+                Chasing();
+                break;
+        }
+    }
+
+    private void Chasing()
+    {
         transform.LookAt(Player);
         if (Vector3.Distance(transform.position, Player.position) <= lungeDistance)
         {
@@ -49,21 +67,31 @@ public class Chase : MonoBehaviour
 
         if (Vector3.Distance(transform.position, Player.position) <= noticeDistance)
         {
-            //close = true;
             rb.velocity = (transform.forward * curSpeed);
         }
         else
         {
-            //close = false;
+            _currentState = StatesAI.Patrol;
         }
+    }
+
+    private IEnumerator Patrol()
+    {
+        throw new NotImplementedException();
     }
 
     private void OnTriggerStay(Collider other)
     {
+        Debug.DrawLine(transform.position, Player.position, Color.red);
+
         if (other.tag == "LightStun")
         {
-            stunTime = 0;
-            this.stun = true;
+            var allButTriggers = ~(1 << 8);
+            if (!Physics.Linecast(transform.position, Player.position, allButTriggers))
+            {
+                stunTime = 0;
+                this.stun = true;
+            }
         }
     }
 }

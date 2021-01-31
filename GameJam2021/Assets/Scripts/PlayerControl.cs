@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     public float accl = 0.5f;
     public GameObject flashlight;
 
+    private Vector3 aimDirection;
     private bool lightOn = false;
     private double maxBattery = 100;
     private double batteryConsumption = 0.01;
@@ -30,6 +31,7 @@ public class PlayerControl : MonoBehaviour
         xMove = 0.0f;
         yMove = 0.0f;
         flashlight.SetActive(false);
+        aimDirection = transform.position;
     }
 
     private void OnMove(InputValue movementValue)
@@ -58,46 +60,28 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    private void OnLook(InputValue lookValue)
+    {
+        Vector2 lookVector = lookValue.Get<Vector2>();
+
+        aimDirection = new Vector3(lookVector.x, 0f, lookVector.y);
+    }
+
+    private void OnMouseLook(InputValue lookValue)
+    {
+        Vector2 lookVector = lookValue.Get<Vector2>();
+
+        aimDirection = new Vector3((lookVector.x - (Screen.width / 2)), 0f, (lookVector.y - (Screen.height / 2)));
+    }
+
     //player movement
     private void FixedUpdate()
     {
         //movement on X
-        xMove += inputX * accl;
-
-        //if no input, come to stop
-        if (inputX == 0)
-        {
-            xMove = xMove * accl;
-        }
-
-        //don't surpass max speeds
-        if (xMove > maxSpeed)
-        {
-            xMove = maxSpeed;
-        }
-        else if (xMove < -maxSpeed)
-        {
-            xMove = -maxSpeed;
-        }
+        xMove = inputX * maxSpeed;
 
         //movement on Z but am too lazy to chance the wording.
-        yMove += inputY * accl;
-
-        //if no input, come to stop
-        if (inputY == 0)
-        {
-            yMove = yMove * accl;
-        }
-
-        //don't surpass max speeds
-        if (yMove > maxSpeed)
-        {
-            yMove = maxSpeed;
-        }
-        else if (yMove < -maxSpeed)
-        {
-            yMove = -maxSpeed;
-        }
+        yMove = inputY * maxSpeed;
 
         Vector3 newPosition = new Vector3(xMove * speed * Time.fixedDeltaTime, 0.0f, yMove * speed * Time.fixedDeltaTime);
         transform.LookAt(newPosition + transform.position);
@@ -108,7 +92,12 @@ public class PlayerControl : MonoBehaviour
     //flashlight
     private void Update()
     {
-        //print(currentBattery);
+        Debug.DrawLine(transform.position, transform.position + aimDirection, Color.red);
+        //move and aim flashlight accordingly
+        flashlight.transform.position = transform.position;
+        flashlight.transform.LookAt(flashlight.transform.position + aimDirection);
+
+        //deplete battery
         if (lightOn)
         {
             currentBattery -= batteryConsumption;

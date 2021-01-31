@@ -2,19 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void ExitOpenHandler();
+
 public class GameManager : MonoBehaviour
 {
+    public static event ExitOpenHandler ExitOpen;
 
     [SerializeField]
     private int _gameObjectives = 3;
 
-    private Inventory inventory;
+    private Inventory _inventory;
+    private Exit _exit;
 
     // Start is called before the first frame update
     void Start()
     {
-        inventory = FindObjectOfType<Inventory>();
+        _inventory = FindObjectOfType<Inventory>();
         Inventory.OnPickUp += Inventory_OnPickUp;
+
+        _exit = FindObjectOfType<Exit>();
+        _exit.LevelFinish += _exit_LevelFinish;
+
+        _gameObjectives = GameObject.FindGameObjectsWithTag("Circuit").Length;
+    }
+
+    private void _exit_LevelFinish()
+    {
+        Debug.Log("Level is done");
+        // TODO: Call Render new scene here object here
     }
 
     private void Inventory_OnPickUp(ItemSO item)
@@ -43,6 +58,10 @@ public class GameManager : MonoBehaviour
         if(_gameObjectives == 0)
         {
             Debug.Log("Level Finished!");
+            _exit.active = true;
+
+            // Probably call ui to display Exit has opened
+            ExitOpen?.Invoke(); 
         }
     }
 }

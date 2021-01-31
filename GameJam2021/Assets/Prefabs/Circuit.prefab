@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2916737433967339999}
   m_Layer: 0
   m_Name: Circuit
-  m_TagString: Untagged
+  m_TagString: Circuit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

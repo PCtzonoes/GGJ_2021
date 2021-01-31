@@ -183,11 +183,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2434310219702885682, guid: 390832da81332ff4d89f46caaf9adf43,
-        type: 3}
-      propertyPath: nextScene
-      value: GameOver
-      objectReference: {fileID: 0}
     - target: {fileID: 2434310219702885683, guid: 390832da81332ff4d89f46caaf9adf43,
         type: 3}
       propertyPath: m_Name
@@ -868,11 +863,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Exit
-      objectReference: {fileID: 0}
-    - target: {fileID: 8451375504017943946, guid: 5d8d1a89cf228ed42aafb585f6145f26,
-        type: 3}
-      propertyPath: m_TagString
-      value: Finish
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d8d1a89cf228ed42aafb585f6145f26, type: 3}
@@ -1670,11 +1660,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 1660756717643991748, guid: 966284d0a7d3e5d459541215b21f32f5,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1660756717643991801, guid: 966284d0a7d3e5d459541215b21f32f5,
         type: 3}

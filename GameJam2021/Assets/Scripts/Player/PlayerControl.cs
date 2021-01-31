@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public delegate void DeathHandler();
+
 public class PlayerControl : MonoBehaviour
 {
+    public event DeathHandler DeathHandler;
+
     public float speed = 0.0f;
     public float maxSpeed = 10.0f;
     public float accl = 0.5f;
@@ -139,5 +143,6 @@ public class PlayerControl : MonoBehaviour
     private void Death()
     {
         Destroy(this);
+        DeathHandler();
     }
 }

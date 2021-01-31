@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 
         // Player Controller
         _playerControl = FindObjectOfType<PlayerControl>();
+        _playerControl.DeathHandler += _playerControl_DeathScreen;
 
         // Hud Controller
         _hudController = FindObjectOfType<HudController>();
@@ -42,6 +43,12 @@ public class GameManager : MonoBehaviour
         _exit = FindObjectOfType<Exit>();
         _exit.LevelFinish += _exit_LevelFinish;
 
+    }
+
+    private void _playerControl_DeathScreen()
+    {
+        // Load Game Over Screen
+        SceneManager.LoadScene("GameOver");
     }
 
     IEnumerator UpdateHud()

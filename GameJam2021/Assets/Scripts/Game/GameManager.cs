@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
 
     private void Inventory_OnPickUp(ItemSO item)
     {
-        Debug.Log("Picked Up Item");
         switch(item.Type)
         {
             case ItemSO.ItemType.Circuit:

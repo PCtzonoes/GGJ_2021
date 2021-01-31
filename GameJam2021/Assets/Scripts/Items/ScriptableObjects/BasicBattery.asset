@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Cheap Battery
   _type: 2
-  _power: 4
+  _power: 10
   _value: 3

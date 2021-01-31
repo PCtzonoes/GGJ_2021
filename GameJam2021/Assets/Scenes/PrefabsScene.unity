@@ -233,17 +233,17 @@ PrefabInstance:
     - target: {fileID: 925006803873257954, guid: 293030a825f3b494da69cbc384d359dd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 925006803873257954, guid: 293030a825f3b494da69cbc384d359dd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5504208e-18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 925006803873257954, guid: 293030a825f3b494da69cbc384d359dd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.11486074
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 925006803873257954, guid: 293030a825f3b494da69cbc384d359dd,
         type: 3}
@@ -279,6 +279,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2724346409869512834, guid: 293030a825f3b494da69cbc384d359dd,
+        type: 3}
+      propertyPath: speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2724346409869512834, guid: 293030a825f3b494da69cbc384d359dd,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 293030a825f3b494da69cbc384d359dd, type: 3}
@@ -612,6 +622,21 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1137173541}
+    - target: {fileID: 2643400783529873203, guid: 966284d0a7d3e5d459541215b21f32f5,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643400783529873203, guid: 966284d0a7d3e5d459541215b21f32f5,
+        type: 3}
+      propertyPath: lungeDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643400783529873203, guid: 966284d0a7d3e5d459541215b21f32f5,
+        type: 3}
+      propertyPath: noticeDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2643400783529873203, guid: 966284d0a7d3e5d459541215b21f32f5,
         type: 3}
       propertyPath: _patrolPositions.Array.data[0]

@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
         Debug.Log(_playerControl.currentBattery);
         _hudController.UpdateBatteryLife((int)_playerControl.currentBattery);
-        StartCoroutine(UpdateBatteryHud());
+        StartCoroutine(UpdateHud());
 
         // Add Inventory
         _inventory = FindObjectOfType<Inventory>();
@@ -45,11 +45,12 @@ public class GameManager : MonoBehaviour
 
     }
 
-    IEnumerator UpdateBatteryHud()
+    IEnumerator UpdateHud()
     {
         while (isGameActive)
         {
             _hudController.UpdateBatteryLife((int)_playerControl.currentBattery);
+            _hudController.UpdateCircuits(_gameObjectives);
             yield return new WaitForEndOfFrame();
         }
     }
@@ -67,7 +68,6 @@ public class GameManager : MonoBehaviour
             case ItemSO.ItemType.Circuit:
                 Debug.Log("Picked up Circuit");
                 _gameObjectives--;
-                _hudController.UpdateCircuits(_gameObjectives);
                 break;
             case ItemSO.ItemType.Cog:
                 Debug.Log("Picked up Cog");

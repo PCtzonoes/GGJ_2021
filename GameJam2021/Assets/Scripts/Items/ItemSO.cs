@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class ItemSO : ScriptableObject
 {
-    public enum ItemType { Cog, Circuit, Batery }
+    public enum ItemType { Cog, Circuit, Battery }
 
     [SerializeField]
     private string _name;

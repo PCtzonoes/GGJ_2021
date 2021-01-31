@@ -14,7 +14,12 @@ public class PlayerControl : MonoBehaviour
     private bool lightOn = false;
     private double maxBattery = 100;
     private double batteryConsumption = 0.01;
-    private double currentBattery = 100;
+    private double _currentBattery = 100;
+    public double currentBattery
+    {
+        get => _currentBattery;
+        private set => _currentBattery = value;
+    }
 
     private float inputX;
     private float inputY;

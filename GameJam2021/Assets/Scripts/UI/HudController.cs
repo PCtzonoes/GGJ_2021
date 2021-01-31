@@ -12,7 +12,7 @@ public class HudController : MonoBehaviour
     void Start()
     {
         batteryLife.text = "Battery: 100%";
-        circuits.text = "Ciruits: 99";
+        circuits.text = "Circuits: 99";
     }
 
     // Update is called once per frame
@@ -26,8 +26,8 @@ public class HudController : MonoBehaviour
         batteryLife.text = "Battery: " + batteryLifeVal + "%";
     }
 
-    public void UpdateCircuits(int ciruitsVal)
+    public void UpdateCircuits(int circuitsVal)
     {
-        circuits.text = "Ciruits: " + ciruitsVal;
+        circuits.text = "Circuits: " + circuitsVal;
     }
 }

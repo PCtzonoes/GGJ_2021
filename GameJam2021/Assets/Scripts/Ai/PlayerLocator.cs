@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerLocator : MonoBehaviour
 {
-    private EnemieAI _ai;
+    private EnemyAI _ai;
 
     [SerializeField]
     private Transform _eyePosition;
@@ -14,7 +14,7 @@ public class PlayerLocator : MonoBehaviour
     bool _playerInRange = false;
     private void Awake()
     {
-        _ai = gameObject.GetComponent<EnemieAI>();
+        _ai = gameObject.GetComponent<EnemyAI>();
         Debug.Log(_ai);
         if (_ai == null) Destroy(gameObject);
     }
@@ -38,7 +38,7 @@ public class PlayerLocator : MonoBehaviour
 
     private void Update()
     {
-        if (_playerInRange == false || _ai.CurrentState != EnemieAI.StatesAI.Patrol) return;
+        if (_playerInRange == false || _ai.CurrentState != EnemyAI.StatesAI.Patrol) return;
         RaycastHit hit;
         Vector3 target = new Vector3(_ai.Player.transform.position.x,
         _ai.Player.transform.position.y + 0.25f,

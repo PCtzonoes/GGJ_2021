@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
-public class EnemieAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
     public GameObject Player;
     private Rigidbody rb;

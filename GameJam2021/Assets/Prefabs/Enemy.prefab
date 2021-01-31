@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   moveSpeed: 4
-  totalStun: 60
+  totalStun: 3
   lungeMultiplier: 2
   noticeDistance: 10
   lungeDistance: 3

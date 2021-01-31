@@ -113,4 +113,25 @@ public class PlayerControl : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.tag == "Enemy")
+        {
+            Death();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        Destroy(this);
+    }
 }

@@ -85,7 +85,7 @@ public class EnemieAi : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         Debug.DrawLine(transform.position, Player.position, Color.red);
-
+        
         if (other.tag == "LightStun")
         {
             var allButTriggers = ~(1 << 8);

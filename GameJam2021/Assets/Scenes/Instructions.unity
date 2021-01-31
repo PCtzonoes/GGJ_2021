@@ -742,41 +742,41 @@ MonoBehaviour:
 
     - Escape the dungeon
 
-    - You will need to collect
-    circuits to open the exit door.
+    - Collect circuits to open
+    the exit door
 
-    - Enemy robots roam around to guard the
-    dungeon
+    - Enemy robots roam around to guard the dungeon
 
-    - Your robot has a flash light to stun the enemy.
+    - Use
+    flash light to stun enemies
 
-    - Your robot
-    will shine in the direction of your mouse
+    - Flash light will shine to the direction of
+    your mouse
 
     - Battery depletes on usage
 
 
     Power-ups:
 
-    -
-    Battery - Battery life will slightly increase
+    - Battery -
+    Battery life will slightly increase
 
 
     Controls:
 
 
-    w - move
-    up
+    w - move up
 
-    s - move down
+    s
+    - move down
 
     a - move left
 
     d - move right
 
 
-    left click
-    - to turn on flash light
+    left click - to turn
+    on flash light
 
     mouse pointer - direction to shine the light'
   m_isRightToLeft: 0

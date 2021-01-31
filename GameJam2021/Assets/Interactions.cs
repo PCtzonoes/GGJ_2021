@@ -12,7 +12,7 @@ public class Interactions : MonoBehaviour
 
     void Start()
     {
-        
+        Player.CompareTag("Player");
     }
 
     // Update is called once per frame

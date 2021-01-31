@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GameCircuit
   m_EditorClassIdentifier: 
   _name: 
-  _type: 0
+  _type: 1
   _power: 0
-  _value: 0
+  _value: 1

@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public delegate void ExitOpenHandler();
 
 public class GameManager : MonoBehaviour
 {
     public static event ExitOpenHandler ExitOpen;
+
+    public string nextScene;
 
     [SerializeField]
     private int _gameObjectives = 3;
@@ -58,6 +61,7 @@ public class GameManager : MonoBehaviour
     private void _exit_LevelFinish()
     {
         Debug.Log("Level is done");
+        SceneManager.LoadScene(nextScene);
         // TODO: Call Render new scene here object here
     }
 

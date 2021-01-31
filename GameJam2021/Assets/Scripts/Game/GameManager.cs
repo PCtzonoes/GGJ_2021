@@ -32,10 +32,6 @@ public class GameManager : MonoBehaviour
 
         // Hud Controller
         _hudController = FindObjectOfType<HudController>();
-        _hudController.UpdateCircuits(_gameObjectives);
-
-        Debug.Log(_playerControl.currentBattery);
-        _hudController.UpdateBatteryLife((int)_playerControl.currentBattery);
         StartCoroutine(UpdateHud());
 
         // Add Inventory

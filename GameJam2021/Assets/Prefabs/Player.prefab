@@ -323,8 +323,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12.88365, y: 7.7339506, z: 10.477221}
-  m_Center: {x: 0.04731655, y: 0.65070677, z: 6.7717075}
+  m_Size: {x: 9.745698, y: 7.7339506, z: 10.477221}
+  m_Center: {x: 0.052034855, y: 0.65070677, z: 6.7717075}
 --- !u!1 &936569995308036885
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +370,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
   m_Intensity: 1
-  m_Range: 11
+  m_Range: 20
   m_SpotAngle: 35.952354
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

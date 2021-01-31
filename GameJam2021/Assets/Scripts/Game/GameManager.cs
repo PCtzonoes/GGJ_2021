@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Picked up Cog");
                 break;
             case ItemSO.ItemType.Battery:
+                _playerControl.IncreaseBattery(item.Power);
                 Debug.Log("Picked up Battery");
                 break;
             default:

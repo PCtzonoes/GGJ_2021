@@ -12,10 +12,10 @@ public class PlayerControl : MonoBehaviour
 
     private Vector3 aimDirection;
     private bool lightOn = false;
-    private double maxBattery = 100;
-    private double batteryConsumption = 0.01;
-    private double _currentBattery = 100;
-    public double currentBattery
+    private float maxBattery = 100;
+    private float batteryConsumption = 0.01f;
+    private float _currentBattery = 100;
+    public float currentBattery
     {
         get => _currentBattery;
         private set => _currentBattery = value;
@@ -112,6 +112,12 @@ public class PlayerControl : MonoBehaviour
                 OnRelease();
             }
         }
+    }
+
+    public void IncreaseBattery(float x)
+    {
+        _currentBattery += x;
+        _currentBattery = Mathf.Clamp(_currentBattery, 0, maxBattery);
     }
 
     private void OnCollisionEnter(Collision other)

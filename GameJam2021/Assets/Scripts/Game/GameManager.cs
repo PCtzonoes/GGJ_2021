@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        // Level Objectives
+        _gameObjectives = GameObject.FindGameObjectsWithTag("Circuit").Length;
+
         // Player Controller
         _playerControl = FindObjectOfType<PlayerControl>();
 
@@ -40,16 +43,14 @@ public class GameManager : MonoBehaviour
         _exit = FindObjectOfType<Exit>();
         _exit.LevelFinish += _exit_LevelFinish;
 
-        // Level Objectives
-        _gameObjectives = GameObject.FindGameObjectsWithTag("Circuit").Length;
     }
 
     IEnumerator UpdateBatteryHud()
     {
         while (isGameActive)
         {
-            yield return new WaitForSeconds(1);
             _hudController.UpdateBatteryLife((int)_playerControl.currentBattery);
+            yield return new WaitForEndOfFrame();
         }
     }
 
